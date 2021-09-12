@@ -57,7 +57,8 @@ public:
 
 	double returnDividedNextNumber()
 	{
-		return seed / static_cast<double>(modulus);
+		int next = returnNextNumber();
+		return next/double(modulus);
 	}
 
 };

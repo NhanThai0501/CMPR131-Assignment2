@@ -89,11 +89,16 @@ void programTwo(void)
 	clearScreen();
 	cout << "2> Pseudorandom Project" << endl;
 	cout << string(100, char(196)) << endl;
+    srand(time(0));
+    const int seed = 1;
+    int multiplier = rand() % 999;
+    int increment = rand() % 999;
+    int modulus = rand() % 999;
 
 //Project 11
 	cout << "\t2> Pseudorandom Project" << endl;
 
-	Pseudorandom object(1, 40, 725, 729);
+	Pseudorandom object(seed, multiplier, increment, modulus);
     cout << "\ttest1 (pseudorandom): " << endl;
     cout << "\t\tSeed " << object.getSeed() << endl;
     cout << "\t\tGenerated random " << object.getModulus() << " different numbers.\n" << endl;
@@ -114,9 +119,8 @@ void programTwo(void)
 
  //Project 12
 
-    vector<double> storeArray;
 
-    //PART 2 OF THE PROGRAM
+    vector<double> storeArray;
     for (int i = 0; i < 1000000; i++)
     {
         //cout << "Div num: #" << i + 1 << " = " << object.returnDividedNextNumber() << endl;
@@ -124,10 +128,7 @@ void programTwo(void)
     }
     sort(storeArray.begin(), storeArray.end());
 
-
-
-	cout << "\t\tRange           Number of " << endl;
-	cout << "\t\t                Occurrences" << endl;
+    cout << "\t\tRange           Number of Occurrences" << endl;
 	cout << "\t\t[0.0 ... 0.1)   " << countElementsWithinRange(0.0, 0.1, storeArray) << endl;
 	cout << "\t\t[0.1 ... 0.2)   " << countElementsWithinRange(0.1, 0.2, storeArray) << endl;
 	cout << "\t\t[0.2 ... 0.3)   " << countElementsWithinRange(0.2, 0.3, storeArray) << endl;

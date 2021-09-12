@@ -1,4 +1,4 @@
-
+#include <math.h>
 #include <vector>
 // Functions Prototype
 void displayArrayElements(vector<int> v);
@@ -14,41 +14,50 @@ private:
 	int modulus = 0;
 
 public:
-	Pseudorandom()
-	{
-		this->seed = 0;
-		this->multiplier = 0;
-		this->increment = 0;
-		this->modulus = 0;
-	}
 	Pseudorandom(int initialSeed, int newMultiplier, int newIncrement, int newModulus)
 	{
-		this->seed = initialSeed;
-		this->multiplier = newMultiplier;
-		this->increment = newIncrement;
-		this->modulus = newModulus;
+		seed = initialSeed;
+		multiplier = newMultiplier;
+		increment = newIncrement;
+		modulus = newModulus;
 	}
 
-	void setSeed(int newSeed)
+	void changeSeed(int newSeed)
 	{
-		this->seed = newSeed;
-	}
-
-	void generateNextNumber()
-	{
-		this->seed = (this->multiplier * this->seed + this->increment) % this->modulus;
+		seed = newSeed;
 	}
 
 	int returnNextNumber()
 	{
-		generateNextNumber();
-		return this->seed;
+		int next;
+		next = (multiplier * seed + increment) % modulus;
+		seed = next;
+		return next;
+	}
+
+	int getSeed() const
+	{
+		return  seed;
+	}
+
+	int getMultiplier() const
+	{
+		return  multiplier;
+	}
+
+	int getIncrement() const
+	{
+		return  increment;
+	}
+
+	int getModulus() const
+	{
+		return  modulus;
 	}
 
 	double returnDividedNextNumber()
 	{
-		generateNextNumber();
-		return this->seed / static_cast<double>(this->modulus);
+		return seed / static_cast<double>(modulus);
 	}
 
 };

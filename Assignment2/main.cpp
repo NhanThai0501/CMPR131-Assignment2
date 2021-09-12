@@ -89,32 +89,42 @@ void programTwo(void)
 	clearScreen();
 	cout << "2> Pseudorandom Project" << endl;
 	cout << string(100, char(196)) << endl;
-	srand(time(0));
-	const int SEED = 1;
-	int multiplier = rand() % 1000 + 12000;
-	int increment = rand() % 1000 + 12000;
-	int modulus = rand() % 1000 + 12000;
 
+//Project 11
 	cout << "\t2> Pseudorandom Project" << endl;
-	cout << "\ttest1 (pseudorandom): " << endl;
-	cout << "\t\tSeed = " << SEED << endl;
-	Pseudorandom object(SEED, multiplier, increment, modulus);
 
-	vector<double> storeArray;
+	Pseudorandom object(1, 40, 725, 729);
+    cout << "\ttest1 (pseudorandom): " << endl;
+    cout << "\t\tSeed " << object.getSeed() << endl;
+    cout << "\t\tGenerated random " << object.getModulus() << " different numbers.\n" << endl;
+	cout << "\tFirst number: \n" << endl;
+    cout << "\t\tmultiplier = " << object.getMultiplier() << 
+        ", increment = " << object.getIncrement() << ", modulus = " << object.getModulus() << 
+        ", and the new seed = " << object.returnNextNumber() << "\n" << endl;
+    //next number
+    cout << "\tNext number: \n" << endl;
+    cout << "\t\tmultiplier = " << object.getMultiplier() <<
+        ", increment = " << object.getIncrement() << ", modulus = " << object.getModulus() <<
+        ", and the new seed = " << object.returnNextNumber() << "\n" << endl;
+    //next number
+    cout << "\tNext number: \n" << endl;
+    cout << "\t\tmultiplier = " << object.getMultiplier() <<
+        ", increment = " << object.getIncrement() << ", modulus = " << object.getModulus() <<
+        ", and the new seed = " << object.returnNextNumber() << "\n" << endl;
 
-	//PART 2 OF THE PROGRAM
-	for (int i = 0; i < 1000000; i++)
-	{
-		//cout << "Div num: #" << i + 1 << " = " << object.returnDividedNextNumber() << endl;
-		storeArray.push_back(static_cast<double>(object.returnDividedNextNumber()));
-	}
-	sort(storeArray.begin(), storeArray.end());
+ //Project 12
+
+    vector<double> storeArray;
+
+    //PART 2 OF THE PROGRAM
+    for (int i = 0; i < 1000000; i++)
+    {
+        //cout << "Div num: #" << i + 1 << " = " << object.returnDividedNextNumber() << endl;
+        storeArray.push_back(static_cast<double>(object.returnDividedNextNumber()));
+    }
+    sort(storeArray.begin(), storeArray.end());
 
 
-	cout << "\t\tGenerated random 729 different numbers.\n" << endl;
-	cout << "\ttest2 (pseudorandom): \n" << endl;
-
-	cout << "\t\tmultiplier = " << multiplier << ", increment = " << increment << ", modulus = " << modulus << ", and the new seed = " << SEED << "\n" << endl;
 
 	cout << "\t\tRange           Number of " << endl;
 	cout << "\t\t                Occurrences" << endl;

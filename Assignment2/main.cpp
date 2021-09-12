@@ -90,17 +90,22 @@ void programTwo(void)
 	cout << "2> Pseudorandom Project" << endl;
 	cout << string(100, char(196)) << endl;
     srand(time(0));
-    const int seed = 1;
-    int multiplier = rand() % 999;
-    int increment = rand() % 999;
-    int modulus = rand() % 999;
+    int seed = rand() % 9999;;
+    int multiplier = rand() % 9999;
+    int increment = rand() % 9999;
+    int modulus = rand() % 9999;
 
 //Project 11
 	cout << "\t2> Pseudorandom Project" << endl;
 
-	Pseudorandom object(seed, multiplier, increment, modulus);
+	Pseudorandom test1(1, 40, 725, 729);
     cout << "\ttest1 (pseudorandom): " << endl;
-    cout << "\t\tSeed " << object.getSeed() << endl;
+    cout << "\t\tSeed = " << test1.getSeed() << endl;
+    cout << "\t\tGenerated random " << test1.getModulus() << " different numbers.\n" << endl;
+	
+	Pseudorandom object(seed, multiplier, increment, modulus);
+	cout << "\ttest2 (pseudorandom): " << endl;
+	cout << "\t\tSeed = " << object.getSeed() << endl;
     cout << "\t\tGenerated random " << object.getModulus() << " different numbers.\n" << endl;
 	cout << "\tFirst number: \n" << endl;
     cout << "\t\tmultiplier = " << object.getMultiplier() << 

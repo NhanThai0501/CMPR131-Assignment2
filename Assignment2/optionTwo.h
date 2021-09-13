@@ -1,3 +1,8 @@
+// optionTwo.h 
+
+#ifndef OPTION_TWO_LOCK
+#define OPTION_TWO_LOCK
+
 #include <math.h>
 #include <vector>
 // Functions Prototype
@@ -64,19 +69,19 @@ public:
 		return  modulus;
 	}
 	// Precondition: NA
-	// Postcondition:
+	// Postcondition: return the value of divided number after changing the "seed"
 	double returnDividedNextNumber()
 	{
 		int next = returnNextNumber();
-		return next/double(modulus);
+		return next / double(modulus);
 	}
 
 };
 
 // Additional functions
 
-	// Precondition: valid vector that has integer type
-	// Postcondition: show the elements in the vector
+// Precondition: valid vector that has integer type
+// Postcondition: show the elements in the vector
 void displayArrayElements(vector<int> v)
 {
 	for (int i = 0; i < v.size(); i++)
@@ -105,3 +110,5 @@ int countElementsWithinRange(double begin, double end, vector<double> v)
 	}
 	return count;
 }
+
+#endif
